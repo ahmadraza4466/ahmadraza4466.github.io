@@ -6,26 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ahmad Raza | Senior Software Engineer</title>
     <meta name="description"
-        content="Ahmad Raza - Senior Software Engineer | Full-Stack (Node.js, Angular, React, Vue) | AWS | Microservices. Based in Riga, Latvia.">
+        content="Ahmad Raza - Building scalable cloud-native applications with 7+ years of experience.">
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- AOS Animation CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
         :root {
-            --bg-dark: #0a0a0a;
-            --bg-card: #141414;
-            --bg-card-hover: #1a1a1a;
-            --accent-blue: #2563eb;
-            --accent-blue-hover: #1d4ed8;
-            --accent-light: #60a5fa;
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --border: #262626;
+            --bg: #030508;
+            --bg-glass: rgba(255, 255, 255, 0.02);
+            --bg-glass-hover: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.08);
+            --cyan: #00f2fe;
+            --purple: #8a2be2;
+            --blue: #4facfe;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
         }
 
         * {
@@ -39,14 +37,15 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-primary);
-            line-height: 1.6;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
             overflow-x: hidden;
+            cursor: none;
+            /* Custom cursor */
             background-image:
-                radial-gradient(circle at 15% 50%, rgba(37, 99, 235, 0.05), transparent 25%),
-                radial-gradient(circle at 85% 30%, rgba(96, 165, 250, 0.05), transparent 25%);
+                radial-gradient(circle at 10% 20%, rgba(138, 43, 226, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(0, 242, 254, 0.1) 0%, transparent 40%);
         }
 
         /* Custom Scrollbar */
@@ -55,74 +54,102 @@
         }
 
         ::-webkit-scrollbar-track {
-            background: var(--bg-dark);
+            background: var(--bg);
         }
 
         ::-webkit-scrollbar-thumb {
-            background: var(--border);
+            background: linear-gradient(var(--cyan), var(--purple));
             border-radius: 4px;
         }
 
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--text-secondary);
-        }
-
-        /* Typography */
-        h1,
-        h2,
-        h3,
-        h4 {
-            font-weight: 600;
-            color: var(--text-primary);
-            line-height: 1.2;
-        }
-
-        p {
-            color: var(--text-secondary);
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            position: relative;
+        /* Typography & Utilities */
+        .text-gradient {
+            background: linear-gradient(to right, #00f2fe, #4facfe, #8a2be2, #00f2fe);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            background-size: 300% auto;
+            animation: gradient-shift 6s linear infinite;
             display: inline-block;
+            padding-right: 2px;
         }
 
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
+        @keyframes gradient-shift {
+            0% {
+                background-position: 0% center;
+            }
+
+            100% {
+                background-position: -300% center;
+            }
+        }
+
+        .glass-panel {
+            background: var(--bg-glass);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+        }
+
+        /* Custom Cursor */
+        .cursor-dot,
+        .cursor-ring {
+            position: fixed;
+            top: 0;
             left: 0;
-            width: 40px;
-            height: 3px;
-            background: var(--accent-light);
-            border-radius: 2px;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            z-index: 9999;
+            pointer-events: none;
         }
 
-        .highlight {
-            color: var(--accent-light);
+        .cursor-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--cyan);
+            transition: width 0.2s, height 0.2s;
+        }
+
+        .cursor-ring {
+            width: 34px;
+            height: 34px;
+            border: 1px solid rgba(0, 242, 254, 0.5);
+            transition: width 0.3s, height 0.3s, background 0.3s;
+        }
+
+        .hover-active .cursor-dot {
+            width: 0px;
+            height: 0px;
+        }
+
+        .hover-active .cursor-ring {
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 242, 254, 0.1);
+            border-color: var(--cyan);
         }
 
         /* Navigation */
-        nav {
+        header {
             position: fixed;
             top: 0;
             width: 100%;
+            z-index: 1000;
+            transition: all 0.4s ease;
             padding: 1.5rem 0;
-            z-index: 100;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid transparent;
         }
 
-        nav.scrolled {
-            background: rgba(10, 10, 10, 0.9);
-            border-bottom: 1px solid var(--border);
+        header.scrolled {
             padding: 1rem 0;
+            background: rgba(3, 5, 8, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
         }
 
         .nav-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 2rem;
             display: flex;
@@ -131,363 +158,565 @@
         }
 
         .logo {
-            font-size: 1.2rem;
-            font-weight: 700;
-            text-decoration: none;
-            color: var(--text-primary);
-            letter-spacing: 1px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--text-primary);
-        }
-
-        /* Mobile Menu Toggle */
-        .menu-toggle {
-            display: none;
-            color: var(--text-primary);
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* Button Styles */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            padding: 0.8rem 1.8rem;
-            border-radius: 6px;
-            font-size: 0.95rem;
-            font-weight: 500;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: 1px solid transparent;
-        }
-
-        .btn-primary {
-            background-color: var(--accent-blue);
+            font-size: 1.8rem;
+            font-weight: 800;
             color: white;
-        }
-
-        .btn-primary:hover {
-            background-color: var(--accent-blue-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--text-primary);
-            border-color: var(--border);
-        }
-
-        .btn-secondary:hover {
-            background-color: var(--bg-card);
-            border-color: var(--text-secondary);
-            transform: translateY(-2px);
-        }
-
-        /* Layout Structure */
-        section {
-            padding: 6rem 2rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        /* Hero Section */
-        #hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding-top: 5rem;
-        }
-
-        .hero-greeting {
-            color: var(--accent-light);
-            font-family: monospace;
-            font-size: 1rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .hero-title {
-            font-size: 4rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
+            text-decoration: none;
             letter-spacing: -1px;
-        }
-
-        .hero-subtitle {
-            font-size: 2rem;
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-desc {
-            font-size: 1.1rem;
-            max-width: 650px;
-            margin-bottom: 2.5rem;
-            line-height: 1.8;
-        }
-
-        .hero-actions {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        /* About Section */
-        .about-content {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--text-secondary);
-        }
-
-        .about-content p {
-            margin-bottom: 1.5rem;
-        }
-
-        .about-content .highlight {
-            font-weight: 500;
-        }
-
-        /* Tech Stack Section */
-        .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .tech-category {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .tech-category:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-blue);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        .tech-category h3 {
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
-        .tech-category h3 i {
-            color: var(--accent-light);
+        .logo i {
+            color: var(--cyan);
+            font-size: 1.5rem;
+            filter: drop-shadow(0 0 10px var(--cyan));
         }
 
-        .tech-list {
-            list-style: none;
+        .nav-links {
             display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
+            gap: 3rem;
+            list-style: none;
         }
 
-        .tech-list li {
-            font-size: 0.85rem;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 0.3rem 0.8rem;
-            border-radius: 4px;
-            color: var(--text-secondary);
-        }
-
-        /* Experience Timeline */
-        .timeline {
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
             position: relative;
-            max-width: 800px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--cyan);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--cyan);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: linear-gradient(45deg, rgba(0, 242, 254, 0.1), rgba(138, 43, 226, 0.1));
+            border: 1px solid var(--cyan);
+            padding: 0.6rem 1.5rem !important;
+            border-radius: 50px;
+            color: var(--cyan) !important;
+            transition: all 0.4s !important;
+            overflow: hidden;
+        }
+
+        .nav-cta::after {
+            display: none;
+        }
+
+        .nav-cta:hover {
+            background: var(--cyan);
+            color: var(--bg) !important;
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
+        }
+
+        /* Hero Section */
+        #hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        #hero-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 1000px;
+            padding: 0 2rem;
+            margin-top: 5vh;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            border: 1px solid rgba(138, 43, 226, 0.3);
+            background: rgba(138, 43, 226, 0.05);
+            color: #d4a5ff;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            box-shadow: 0 0 20px rgba(138, 43, 226, 0.1);
+        }
+
+        #hero h1 {
+            font-size: 5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -2px;
+        }
+
+        #hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            line-height: 1.8;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, var(--cyan), var(--blue));
+            color: #000;
+            box-shadow: 0 10px 30px rgba(0, 242, 254, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 242, 254, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-main);
+            border: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+
+        /* Universal Section Styles */
+        section {
+            padding: 8rem 2rem;
+            position: relative;
+            z-index: 10;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
-        .timeline::before {
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+
+        .section-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* Tech Stack Marquee */
+        #tech-stack {
+            padding: 4rem 0;
+            overflow: hidden;
+            position: relative;
+            max-width: 100%;
+            margin-bottom: 4rem;
+        }
+
+        #tech-stack::before,
+        #tech-stack::after {
             content: '';
             position: absolute;
+            top: 0;
+            width: 15vw;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        #tech-stack::before {
             left: 0;
-            top: 5px;
+            background: linear-gradient(90deg, var(--bg), transparent);
+        }
+
+        #tech-stack::after {
+            right: 0;
+            background: linear-gradient(270deg, var(--bg), transparent);
+        }
+
+        .marquee-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .marquee {
+            display: flex;
+            gap: 3rem;
+            width: max-content;
+        }
+
+        .marquee.right {
+            animation: scroll-right 40s linear infinite;
+        }
+
+        .marquee.left {
+            animation: scroll-left 40s linear infinite;
+        }
+
+        .marquee:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        @keyframes scroll-right {
+            0% {
+                transform: translateX(-50%);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .tech-pill {
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            border: 1px solid var(--border);
+            background: var(--bg-glass);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .tech-pill i {
+            font-size: 1.8rem;
+            color: var(--text-muted);
+            transition: all 0.4s ease;
+        }
+
+        .tech-pill:hover {
+            color: white;
+            border-color: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .tech-pill:hover i.fa-react {
+            color: #61DAFB;
+            filter: drop-shadow(0 0 10px rgba(97, 218, 251, 0.5));
+        }
+
+        .tech-pill:hover i.fa-node-js {
+            color: #339933;
+            filter: drop-shadow(0 0 10px rgba(51, 153, 51, 0.5));
+        }
+
+        .tech-pill:hover i.fa-aws {
+            color: #FF9900;
+            filter: drop-shadow(0 0 10px rgba(255, 153, 0, 0.5));
+        }
+
+        .tech-pill:hover i.fa-angular {
+            color: #DD0031;
+            filter: drop-shadow(0 0 10px rgba(221, 0, 49, 0.5));
+        }
+
+        .tech-pill:hover i.fa-vuejs {
+            color: #41B883;
+            filter: drop-shadow(0 0 10px rgba(65, 184, 131, 0.5));
+        }
+
+        .tech-pill:hover i.fa-database {
+            color: #336791;
+            filter: drop-shadow(0 0 10px rgba(51, 103, 145, 0.5));
+        }
+
+        .tech-pill:hover i.fa-docker {
+            color: #2496ED;
+            filter: drop-shadow(0 0 10px rgba(36, 150, 237, 0.5));
+        }
+
+        .tech-pill:hover i.fa-code-branch {
+            color: #F05032;
+            filter: drop-shadow(0 0 10px rgba(240, 80, 50, 0.5));
+        }
+
+        /* Timeline / Experience */
+        .timeline-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            left: 24px;
+            top: 0;
             bottom: 0;
             width: 2px;
-            background: var(--border);
+            background: linear-gradient(to bottom, var(--cyan), var(--purple), transparent);
         }
 
         .timeline-item {
             position: relative;
-            padding-left: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .timeline-item:last-child {
-            margin-bottom: 0;
+            padding-left: 80px;
+            margin-bottom: 4rem;
         }
 
         .timeline-dot {
             position: absolute;
-            left: -5px;
-            top: 5px;
-            width: 12px;
-            height: 12px;
+            left: 17px;
+            top: 0;
+            width: 16px;
+            height: 16px;
             border-radius: 50%;
-            background: var(--accent-blue);
-            border: 2px solid var(--bg-dark);
+            background: var(--cyan);
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.8), 0 0 40px rgba(0, 242, 254, 0.4);
+            z-index: 2;
         }
 
-        .timeline-content {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 1.5rem;
-            transition: all 0.3s ease;
+        .timeline-card {
+            padding: 3rem;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .timeline-content:hover {
-            border-color: rgba(96, 165, 250, 0.3);
-            background: var(--bg-card-hover);
+        .timeline-card:hover {
+            transform: translateY(-5px);
+            background: var(--bg-glass-hover);
+            border-color: rgba(0, 242, 254, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
         }
 
-        .exp-header {
-            margin-bottom: 1rem;
-        }
-
-        .exp-title {
-            font-size: 1.25rem;
-            margin-bottom: 0.2rem;
-        }
-
-        .exp-company {
-            color: var(--accent-light);
-            font-weight: 500;
-        }
-
-        .exp-meta {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            font-family: monospace;
-            margin-top: 0.2rem;
-        }
-
-        .exp-meta span {
-            display: inline-block;
-            margin-right: 15px;
-        }
-
-        .exp-desc {
-            list-style: none;
-        }
-
-        .exp-desc li {
-            position: relative;
-            padding-left: 1.2rem;
-            margin-bottom: 0.5rem;
-            font-size: 0.95rem;
-        }
-
-        .exp-desc li::before {
-            content: '▹';
-            position: absolute;
-            left: 0;
-            color: var(--accent-light);
-        }
-
-        /* Contact Section */
-        #contact {
-            text-align: center;
-            max-width: 600px;
-            margin-bottom: 4rem;
-        }
-
-        #contact .section-title::after {
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            margin: 2rem 0;
+        /* Contact Form */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
             align-items: center;
         }
 
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            font-size: 1.1rem;
-            color: var(--text-secondary);
+        .contact-info h2 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
         }
 
-        .contact-item i {
-            color: var(--accent-light);
+        .contact-info p {
+            color: var(--text-muted);
             font-size: 1.2rem;
+            margin-bottom: 3rem;
         }
 
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 2rem;
-            border-top: 1px solid var(--border);
-            font-size: 0.9rem;
-            color: var(--text-secondary);
+        .office-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
         }
 
-        /* Responsive Design */
+        .office-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .office-item h4 i {
+            color: var(--cyan);
+        }
+
+        .office-item p {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 0;
+        }
+
+        .contact-form {
+            padding: 3rem;
+            border-radius: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-form::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--cyan), var(--purple));
+        }
+
+        .form-floating {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .form-control {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 1rem 0;
+            color: white;
+            font-size: 1.1rem;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--cyan);
+        }
+
+        .form-label {
+            position: absolute;
+            top: 1rem;
+            left: 0;
+            color: var(--text-muted);
+            pointer-events: none;
+            transition: 0.3s ease;
+            font-size: 1.1rem;
+        }
+
+        .form-control:focus~.form-label,
+        .form-control:not(:placeholder-shown)~.form-label {
+            top: -15px;
+            font-size: 0.85rem;
+            color: var(--cyan);
+            font-weight: 600;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.2rem;
+            border: none;
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            margin-top: 1rem;
+        }
+
+        .submit-btn:hover {
+            background: white;
+            color: black;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+        }
+
+        /* Media Queries */
+        @media (max-width: 1024px) {
+            #hero h1 {
+                font-size: 4rem;
+            }
+
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: var(--bg-dark);
-                flex-direction: column;
-                align-items: center;
-                padding: 2rem 0;
-                gap: 1.5rem;
-                border-bottom: 1px solid var(--border);
             }
 
-            .nav-links.active {
-                display: flex;
-            }
-
-            .menu-toggle {
-                display: block;
-            }
-
-            .hero-title {
+            #hero h1 {
                 font-size: 3rem;
             }
 
-            .hero-subtitle {
-                font-size: 1.5rem;
+            .timeline-item {
+                padding-left: 40px;
             }
 
+            .timeline-container::before {
+                left: 14px;
+            }
+
+            .timeline-dot {
+                left: 7px;
+                width: 14px;
+                height: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
             section {
-                padding: 4rem 1.5rem;
+                padding: 4rem 1.2rem;
+            }
+
+            #hero h1 {
+                font-size: 2.3rem;
+                margin-bottom: 1rem;
             }
 
             .btn-group {
@@ -497,6 +726,15 @@
 
             .btn {
                 width: 100%;
+                text-align: center;
+            }
+
+            .contact-form {
+                padding: 1.5rem;
+            }
+
+            .timeline-card {
+                padding: 1.5rem;
             }
         }
     </style>
@@ -504,154 +742,154 @@
 
 <body>
 
-    <!-- Navigation -->
-    <nav id="navbar">
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+
+    <!-- Header Navigation -->
+    <header id="header">
         <div class="nav-container">
-            <a href="#" class="logo">AR.</a>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Tech Stack</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#contact">Contact</a></li>
+            <a href="#hero" class="logo cursor-hover"><i class="fas fa-terminal"></i> Ahmad Raza</a>
+            <ul class="nav-links">
+                <li><a href="#about" class="cursor-hover">About</a></li>
+                <li><a href="#tech" class="cursor-hover">Tech Stack</a></li>
+                <li><a href="#experience" class="cursor-hover">Experience</a></li>
+                <li><a href="#contact" class="nav-cta cursor-hover">Contact Me</a></li>
             </ul>
-            <div class="menu-toggle" id="mobileMenuBtn">
-                <i class="fas fa-bars"></i>
-            </div>
         </div>
-    </nav>
+    </header>
 
     <!-- Hero Section -->
-    <section id="hero">
-        <span class="hero-greeting" data-aos="fade-down" data-aos-delay="100">Hi, my name is</span>
-        <h1 class="hero-title" data-aos="fade-up" data-aos-delay="200">Ahmad Raza.</h1>
-        <h2 class="hero-subtitle" data-aos="fade-up" data-aos-delay="300">I build scalable cloud-native applications.
-        </h2>
-        <p class="hero-desc" data-aos="fade-up" data-aos-delay="400">
-            Senior Software Engineer specializing in full-stack development. Focused on delivering secure,
-            high-performance web applications and microservices using <span class="highlight">Node.js, Angular, React,
-                and AWS</span>, with 7+ years of professional experience.
-        </p>
-        <div class="hero-actions" data-aos="fade-up" data-aos-delay="500">
-            <a href="#contact" class="btn btn-primary"><i class="far fa-envelope"></i> Contact Me</a>
-            <a href="#" target="_blank" class="btn btn-secondary"><i class="fab fa-linkedin-in"></i> View LinkedIn</a>
-            <a href="#" class="btn btn-secondary" title="Currently holding placeholder action"><i
-                    class="fas fa-file-download"></i> Download CV</a>
+    <section id="hero" style="max-width: 100%; padding:0;">
+        <canvas id="hero-canvas"></canvas>
+        <div class="hero-content">
+            <div data-aos="fade-down" data-aos-duration="1200">
+                <span class="hero-badge">Senior Software Engineer</span>
+            </div>
+            <h1 data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="200">
+                Engineering <span class="text-gradient">Scalable</span> Systems
+            </h1>
+            <p data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400">
+                Building scalable cloud-native applications, secure REST APIs, and modern frontend architecture with 7+
+                years of elite experience.
+            </p>
+            <div class="btn-group" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="600">
+                <a href="#contact" class="btn btn-primary cursor-hover">Contact Me</a>
+                <a href="#experience" class="btn btn-secondary cursor-hover">View Experience</a>
+            </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" data-aos="fade-up">
-        <h2 class="section-title">About Me</h2>
-        <div class="about-content">
-            <p>
+    <section id="about">
+        <div class="section-header" data-aos="fade-up">
+            <h2 class="section-title">Professional <span class="text-gradient">Profile</span></h2>
+        </div>
+        <div class="glass-panel cursor-hover"
+            style="padding: 3rem; max-width: 1000px; margin: 0 auto; color: var(--text-muted); font-size: 1.15rem; line-height: 1.8;"
+            data-aos="fade-up">
+            <p style="margin-bottom: 1.5rem;">
                 Ahmad Raza is a Senior Software Engineer with 6+ years of experience building scalable, high-performance
                 web applications across modern JavaScript ecosystems.
             </p>
-            <p>
-                He specializes in full-stack development using <span class="highlight">Angular (2+ to 17+), Vue.js,
-                    React, and Node.js</span>, delivering responsive single-page applications (SPAs), secure RESTful
+            <p style="margin-bottom: 1.5rem;">
+                He specializes in full-stack development using <strong><span class="text-gradient"
+                        style="font-size: 1.15rem; background-size: 200%;">Angular (2-17+), Vue.js, React, and
+                        Node.js</span></strong>, delivering responsive single-page applications (SPAs), secure RESTful
                 APIs, and microservices-based architectures.
             </p>
-            <p>
-                He has hands-on experience with cloud-native systems using <span class="highlight">AWS (Lambda,
-                    DynamoDB, EC2, S3)</span>, containerized deployments using Docker, and CI/CD pipelines with Jenkins
-                and GitHub Actions.
+            <p style="margin-bottom: 1.5rem;">
+                He has hands-on experience with cloud-native systems using <strong>AWS (Lambda, DynamoDB, EC2,
+                    S3)</strong>, containerized deployments using Docker, and CI/CD pipelines with Jenkins and GitHub
+                Actions.
             </p>
             <p>
-                Currently based in <span class="highlight">Riga, Latvia</span>, contributing to BBC digital
-                transformation initiatives as part of the Accenture delivery team, employed by MegaDev. Open to
-                senior-level full-stack or backend-focused roles across Europe (remote, hybrid, relocation).
+                Currently based in <strong>Riga, Latvia</strong>, contributing to BBC digital transformation initiatives
+                as part of the Accenture delivery team, employed by MegaDev. Open to senior-level roles across Europe.
             </p>
         </div>
     </section>
 
-    <!-- Tech Stack Section -->
-    <section id="skills" data-aos="fade-up">
-        <h2 class="section-title">Technology Stack</h2>
-        <div class="tech-grid">
+    <!-- Dynamic Tech Stack Marquee -->
+    <section id="tech" style="padding:4rem 0 8rem 0; max-width:100%;">
+        <div class="section-header" style="margin-bottom: 3rem;" data-aos="fade-up">
+            <h2 class="section-title">Core <span class="text-gradient">Expertise</span></h2>
+            <p class="section-subtitle">A comprehensive toolkit spanning modern frontend frameworks, backend
+                microservices, and robust cloud DevOps pipelines.</p>
+        </div>
 
-            <div class="tech-category" data-aos="fade-up" data-aos-delay="100">
-                <h3><i class="fas fa-laptop-code"></i> Frontend</h3>
-                <ul class="tech-list">
-                    <li>Angular (2+ to 17+)</li>
-                    <li>React</li>
-                    <li>Vue.js</li>
-                    <li>TypeScript</li>
-                    <li>JavaScript (ES6+)</li>
-                </ul>
+        <div id="tech-stack">
+            <div class="marquee-wrapper">
+                <div class="marquee left">
+                    <div class="tech-pill cursor-hover"><i class="fa-brands fa-angular"></i> Angular 17+</div>
+                    <div class="tech-pill cursor-hover"><i class="fa-brands fa-node-js"></i> Node.js</div>
+                    <div class="tech-pill cursor-hover"><i class="fa-brands fa-react"></i> React</div>
+                    <div class="tech-pill cursor-hover"><i class="fa-brands fa-vuejs"></i> Vue.js</div>
+                    <div class="tech-pill cursor-hover"><i class="fa-solid fa-code"></i> TypeScript</div>
+                    <div class="tech-pill cursor-hover"><i class="fa-solid fa-database"></i> PostgreSQL</div>
+                    <div class="tech-pill cursor-hover"><i class="fa-brands fa-angular"></i> Angular 17+</div>
+                    <div class="tech-pill cursor-hover"><i class="fa-brands fa-node-js"></i> Node.js</div>
+                    <div class="tech-pill cursor-hover"><i class="fa-brands fa-react"></i> React</div>
+                    <div class="tech-pill cursor-hover"><i class="fa-brands fa-vuejs"></i> Vue.js</div>
+                    <div class="tech-pill cursor-hover"><i class="fa-solid fa-code"></i> TypeScript</div>
+                    <div class="tech-pill cursor-hover"><i class="fa-solid fa-database"></i> PostgreSQL</div>
+                </div>
+
+                <div class="marquee right">
+                    <div class="tech-pill cursor-hover"><i class="fa-brands fa-aws"></i> AWS Cloud</div>
+                    <div class="tech-pill cursor-hover"><i class="fa-brands fa-docker"></i> Docker</div>
+                    <div class="tech-pill cursor-hover"><i class="fa-solid fa-code-branch"></i> GitHub Actions</div>
+                    <div class="tech-pill cursor-hover"><i class="fa-brands fa-jenkins"></i> Jenkins</div>
+                    <div class="tech-pill cursor-hover"><i class="fa-solid fa-server"></i> REST APIs</div>
+                    <div class="tech-pill cursor-hover"><i class="fa-brands fa-envira"></i> MongoDB</div>
+                    <div class="tech-pill cursor-hover"><i class="fa-brands fa-aws"></i> AWS Cloud</div>
+                    <div class="tech-pill cursor-hover"><i class="fa-brands fa-docker"></i> Docker</div>
+                    <div class="tech-pill cursor-hover"><i class="fa-solid fa-code-branch"></i> GitHub Actions</div>
+                    <div class="tech-pill cursor-hover"><i class="fa-brands fa-jenkins"></i> Jenkins</div>
+                    <div class="tech-pill cursor-hover"><i class="fa-solid fa-server"></i> REST APIs</div>
+                    <div class="tech-pill cursor-hover"><i class="fa-brands fa-envira"></i> MongoDB</div>
+                </div>
             </div>
-
-            <div class="tech-category" data-aos="fade-up" data-aos-delay="200">
-                <h3><i class="fas fa-server"></i> Backend</h3>
-                <ul class="tech-list">
-                    <li>Node.js</li>
-                    <li>Express.js</li>
-                    <li>REST APIs</li>
-                    <li>Microservices</li>
-                </ul>
-            </div>
-
-            <div class="tech-category" data-aos="fade-up" data-aos-delay="300">
-                <h3><i class="fas fa-cloud"></i> Cloud & DevOps</h3>
-                <ul class="tech-list">
-                    <li>AWS Lambda</li>
-                    <li>EC2 & S3</li>
-                    <li>Docker</li>
-                    <li>Jenkins</li>
-                    <li>GitHub Actions</li>
-                </ul>
-            </div>
-
-            <div class="tech-category" data-aos="fade-up" data-aos-delay="400">
-                <h3><i class="fas fa-database"></i> Databases</h3>
-                <ul class="tech-list">
-                    <li>MongoDB</li>
-                    <li>PostgreSQL</li>
-                    <li>MySQL</li>
-                    <li>DynamoDB</li>
-                </ul>
-            </div>
-
-            <div class="tech-category" data-aos="fade-up" data-aos-delay="500">
-                <h3><i class="fas fa-project-diagram"></i> Methodologies</h3>
-                <ul class="tech-list">
-                    <li>Agile / Scrum</li>
-                    <li>Sprint Planning</li>
-                    <li>Retrospectives</li>
-                    <li>TDD</li>
-                </ul>
-            </div>
-
         </div>
     </section>
 
-    <!-- Experience Section -->
+    <!-- Professional Experience Timeline -->
     <section id="experience">
-        <h2 class="section-title" data-aos="fade-up">Professional Experience</h2>
+        <div class="section-header" data-aos="fade-up">
+            <h2 class="section-title">Career <span class="text-gradient">Timeline</span></h2>
+            <p class="section-subtitle">Delivering high-performance architecture and leading development sprints for
+                global enterprises and top-tier agencies.</p>
+        </div>
 
-        <div class="timeline">
+        <div class="timeline-container">
 
             <!-- Job 1 -->
             <div class="timeline-item" data-aos="fade-up">
                 <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <div class="exp-header">
-                        <h3 class="exp-title">Senior Software Engineer <span class="exp-company">@ MegaDev</span></h3>
-                        <div class="exp-meta">
-                            <span><i class="far fa-calendar-alt"></i> 2026 – Present</span>
-                            <span><i class="fas fa-map-marker-alt"></i> Hybrid | Latvia</span>
-                        </div>
-                        <p style="font-size: 0.9rem; margin-top: 5px; color: var(--text-secondary);">Client Assignment:
-                            Accenture | BBC</p>
+                <div class="glass-panel timeline-card cursor-hover">
+                    <h3 style="font-size: 1.8rem; margin-bottom: 0.5rem; color: white;">Senior Software Engineer <span
+                            style="font-weight: 400; color: var(--text-muted);">@ MegaDev</span></h3>
+                    <p style="color: var(--cyan); font-weight: 600; margin-bottom: 1.5rem; letter-spacing: 1px;"><i
+                            class="fas fa-calendar-alt"></i> 2026 – Present &nbsp;|&nbsp; <i class="fas fa-map-pin"></i>
+                        Hybrid, Latvia</p>
+                    <div
+                        style="background: rgba(138,43,226,0.1); border: 1px solid rgba(138,43,226,0.3); border-radius: 8px; padding: 0.8rem 1rem; margin-bottom: 1.5rem; display: inline-block;">
+                        <strong style="color: #d4a5ff;">Client Assignment:</strong> Accenture / BBC
                     </div>
-                    <ul class="exp-desc">
-                        <li>Contributing to large-scale BBC digital transformation initiatives.</li>
-                        <li>Designing and developing scalable full-stack applications using Node.js and modern frontend
-                            frameworks.</li>
-                        <li>Architecting RESTful APIs and microservices.</li>
-                        <li>Implementing AWS cloud-native solutions.</li>
-                        <li>Managing Docker-based deployments and CI/CD pipelines.</li>
-                        <li>Participating in Agile Scrum ceremonies.</li>
+                    <ul style="list-style: none; color: var(--text-muted); line-height: 1.8;">
+                        <li style="margin-bottom: 0.8rem; display: flex; align-items: flex-start; gap: 10px;"><i
+                                class="fas fa-check"
+                                style="color: var(--cyan); margin-top: 6px; font-size: 0.8rem;"></i> Contributing to
+                            large-scale BBC digital transformation initiatives.</li>
+                        <li style="margin-bottom: 0.8rem; display: flex; align-items: flex-start; gap: 10px;"><i
+                                class="fas fa-check"
+                                style="color: var(--cyan); margin-top: 6px; font-size: 0.8rem;"></i> Designing and
+                            developing scalable full-stack applications using Node.js and modern frontend frameworks.
+                        </li>
+                        <li style="margin-bottom: 0.8rem; display: flex; align-items: flex-start; gap: 10px;"><i
+                                class="fas fa-check"
+                                style="color: var(--cyan); margin-top: 6px; font-size: 0.8rem;"></i> Architecting
+                            RESTful APIs, managing Docker deployments, and AWS integrations.</li>
                     </ul>
                 </div>
             </div>
@@ -659,22 +897,25 @@
             <!-- Job 2 -->
             <div class="timeline-item" data-aos="fade-up">
                 <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <div class="exp-header">
-                        <h3 class="exp-title">Senior Software Developer <span class="exp-company">@ Arvensys
-                                Technologies</span></h3>
-                        <div class="exp-meta">
-                            <span><i class="far fa-calendar-alt"></i> July 2022 – April 2025</span>
-                            <span><i class="fas fa-map-marker-alt"></i> Remote | Australia</span>
-                        </div>
-                        <p style="font-size: 0.9rem; margin-top: 5px; color: var(--text-secondary);">Engaged via
-                            Maximize Solution.</p>
-                    </div>
-                    <ul class="exp-desc">
-                        <li>Delivered scalable Angular-based enterprise web applications.</li>
-                        <li>Developed REST API integrations across SaaS and business platforms.</li>
-                        <li>Improved performance, UI scalability, and maintainable architecture.</li>
-                        <li>Worked with distributed teams aligned with Australian standards.</li>
+                <div class="glass-panel timeline-card cursor-hover">
+                    <h3 style="font-size: 1.8rem; margin-bottom: 0.5rem; color: white;">Senior Software Developer <span
+                            style="font-weight: 400; color: var(--text-muted);">@ Arvensys Technologies</span></h3>
+                    <p style="color: var(--cyan); font-weight: 600; margin-bottom: 1.5rem; letter-spacing: 1px;"><i
+                            class="fas fa-calendar-alt"></i> July 2022 – April 2025 &nbsp;|&nbsp; <i
+                            class="fas fa-globe"></i> Remote, Australia</p>
+                    <ul style="list-style: none; color: var(--text-muted); line-height: 1.8;">
+                        <li style="margin-bottom: 0.8rem; display: flex; align-items: flex-start; gap: 10px;"><i
+                                class="fas fa-check"
+                                style="color: var(--cyan); margin-top: 6px; font-size: 0.8rem;"></i> Delivered scalable
+                            Angular-based enterprise web applications.</li>
+                        <li style="margin-bottom: 0.8rem; display: flex; align-items: flex-start; gap: 10px;"><i
+                                class="fas fa-check"
+                                style="color: var(--cyan); margin-top: 6px; font-size: 0.8rem;"></i> Developed REST API
+                            integrations across SaaS and business platforms.</li>
+                        <li style="margin-bottom: 0.8rem; display: flex; align-items: flex-start; gap: 10px;"><i
+                                class="fas fa-check"
+                                style="color: var(--cyan); margin-top: 6px; font-size: 0.8rem;"></i> Worked with
+                            distributed teams aligned with Australian engineering standards.</li>
                     </ul>
                 </div>
             </div>
@@ -682,18 +923,20 @@
             <!-- Job 3 -->
             <div class="timeline-item" data-aos="fade-up">
                 <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <div class="exp-header">
-                        <h3 class="exp-title">Software Developer <span class="exp-company">@ Automated Business
-                                Solutions (ABS)</span></h3>
-                        <div class="exp-meta">
-                            <span><i class="far fa-calendar-alt"></i> September 2020 – June 2022</span>
-                        </div>
-                    </div>
-                    <ul class="exp-desc">
-                        <li>Re-architected ERP systems using Angular, Bootstrap, and PrimeNG.</li>
-                        <li>Migrated legacy systems to modern Angular stack.</li>
-                        <li>Delivered enterprise dashboards for Dubai/MENA clients.</li>
+                <div class="glass-panel timeline-card cursor-hover">
+                    <h3 style="font-size: 1.8rem; margin-bottom: 0.5rem; color: white;">Software Developer <span
+                            style="font-weight: 400; color: var(--text-muted);">@ ABS</span></h3>
+                    <p style="color: var(--cyan); font-weight: 600; margin-bottom: 1.5rem; letter-spacing: 1px;"><i
+                            class="fas fa-calendar-alt"></i> Sept 2020 – June 2022</p>
+                    <ul style="list-style: none; color: var(--text-muted); line-height: 1.8;">
+                        <li style="margin-bottom: 0.8rem; display: flex; align-items: flex-start; gap: 10px;"><i
+                                class="fas fa-check"
+                                style="color: var(--cyan); margin-top: 6px; font-size: 0.8rem;"></i> Re-architected ERP
+                            systems using Angular, Bootstrap, and PrimeNG.</li>
+                        <li style="margin-bottom: 0.8rem; display: flex; align-items: flex-start; gap: 10px;"><i
+                                class="fas fa-check"
+                                style="color: var(--cyan); margin-top: 6px; font-size: 0.8rem;"></i> Delivered
+                            enterprise dashboards for Dubai and global MENA clients.</li>
                     </ul>
                 </div>
             </div>
@@ -701,18 +944,20 @@
             <!-- Job 4 -->
             <div class="timeline-item" data-aos="fade-up">
                 <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <div class="exp-header">
-                        <h3 class="exp-title">Software Developer <span class="exp-company">@ Programmers Force</span>
-                        </h3>
-                        <div class="exp-meta">
-                            <span><i class="far fa-calendar-alt"></i> July 2018 – September 2020</span>
-                        </div>
-                    </div>
-                    <ul class="exp-desc">
-                        <li>Developed fintech and identity verification platforms using Vue.js and Laravel.</li>
-                        <li>Contributed to KYC/AML systems and crypto trading platforms.</li>
-                        <li>Integrated backend services and improved system reliability.</li>
+                <div class="glass-panel timeline-card cursor-hover">
+                    <h3 style="font-size: 1.8rem; margin-bottom: 0.5rem; color: white;">Software Developer <span
+                            style="font-weight: 400; color: var(--text-muted);">@ Programmers Force</span></h3>
+                    <p style="color: var(--cyan); font-weight: 600; margin-bottom: 1.5rem; letter-spacing: 1px;"><i
+                            class="fas fa-calendar-alt"></i> July 2018 – Sept 2020</p>
+                    <ul style="list-style: none; color: var(--text-muted); line-height: 1.8;">
+                        <li style="margin-bottom: 0.8rem; display: flex; align-items: flex-start; gap: 10px;"><i
+                                class="fas fa-check"
+                                style="color: var(--cyan); margin-top: 6px; font-size: 0.8rem;"></i> Developed fintech
+                            and identity verification platforms using Vue.js & Laravel.</li>
+                        <li style="margin-bottom: 0.8rem; display: flex; align-items: flex-start; gap: 10px;"><i
+                                class="fas fa-check"
+                                style="color: var(--cyan); margin-top: 6px; font-size: 0.8rem;"></i> Contributed to
+                            KYC/AML systems and crypto trading platforms.</li>
                     </ul>
                 </div>
             </div>
@@ -720,79 +965,173 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" data-aos="fade-up">
-        <h2 class="section-title">Get In Touch</h2>
-        <p>Currently open to senior-level full-stack or backend roles across Europe. Whether you have a question or just
-            want to say hi, I'll try my best to get back to you!</p>
-
-        <div class="contact-info">
-            <div class="contact-item">
-                <i class="fas fa-map-marker-alt"></i>
-                <span>Riga, Latvia (Open to Relocation / Hybrid / Remote)</span>
+    <!-- Connect Form -->
+    <section id="contact">
+        <div class="contact-wrapper">
+            <div class="contact-info" data-aos="fade-right">
+                <h2>Initialize <br><span class="text-gradient">Contact.</span></h2>
+                <p>Open to senior-level full-stack or backend engineering roles. Reach out to discuss European
+                    positions, AWS architectures, or Next-Gen web capabilities.</p>
+                <div class="office-list" style="margin-top: 2rem;">
+                    <div class="office-item cursor-hover">
+                        <h4><i class="fas fa-map-pin"></i> Current Base</h4>
+                        <p style="color: white; font-weight: 600;">Riga, Latvia</p>
+                        <p>Open to Relocation / Hybrid</p>
+                    </div>
+                </div>
             </div>
-            <div class="contact-item">
-                <i class="fas fa-envelope"></i>
-                <a href="mailto:ahmadraza4466@gmail.com"
-                    style="color: var(--text-primary); text-decoration: none;">ahmadraza4466@gmail.com</a>
-            </div>
-        </div>
 
-        <div style="margin-top: 2rem;">
-            <a href="mailto:ahmadraza4466@gmail.com" class="btn btn-primary"
-                style="padding: 1rem 2rem; font-size: 1.1rem;">Say Hello</a>
+            <div class="glass-panel contact-form" data-aos="fade-left">
+                <form action="https://formsubmit.co/ahmadraza4466@gmail.com" method="POST">
+                    <input type="text" name="_honey" style="display:none">
+                    <input type="hidden" name="_template" value="box">
+                    <input type="hidden" name="_subject" value="URGENT: Recruitment/Inquiry - Portfolio">
+
+                    <div class="form-floating">
+                        <input type="text" id="name" name="Name" class="form-control cursor-hover" placeholder=" "
+                            required>
+                        <label for="name" class="form-label">Recruiter / Full Name</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="email" id="email" name="Email" class="form-control cursor-hover" placeholder=" "
+                            required>
+                        <label for="email" class="form-label">Contact Email</label>
+                    </div>
+                    <div class="form-floating" style="margin-bottom: 2.5rem;">
+                        <input type="text" id="project" name="Message" class="form-control cursor-hover" placeholder=" "
+                            required>
+                        <label for="project" class="form-label">Opportunity / Message</label>
+                    </div>
+
+                    <div class="submit-wrapper">
+                        <button type="submit" class="submit-btn cursor-hover">
+                            Dispatch Message <i class="fas fa-arrow-right" style="margin-left: 10px;"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
-        <p>Built by Ahmad Raza &copy; 2026</p>
+    <footer style="padding: 2rem; border-top: 1px solid var(--border); text-align: center;">
+        <div class="footer-logo cursor-hover">
+            <i class="fas fa-terminal"></i> Ahmad Raza
+        </div>
+        <div class="footer-bottom"
+            style="margin-top: 2rem; display: flex; justify-content: center; align-items: center; gap: 2rem; color: var(--text-muted);">
+            <p>&copy; 2026 Ahmad Raza. All rights reserved.</p>
+            <p>ahmadraza4466@gmail.com</p>
+        </div>
     </footer>
 
-    <!-- Scripts -->
+    <!-- Core Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
     <script>
         // Init AOS
-        AOS.init({
-            duration: 800,
-            once: true,
-            offset: 50,
-        });
+        AOS.init({ duration: 900, once: true, offset: 50, easing: 'ease-out-cubic' });
 
-        // Navbar Scroll Effect
+        // Header Scroll
         window.addEventListener('scroll', () => {
-            const nav = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
         });
 
-        // Mobile Menu Toggle
-        const mobileBtn = document.getElementById('mobileMenuBtn');
-        const navLinks = document.getElementById('navLinks');
+        // Advanced WebGL style canvas nodes
+        const canvas = document.getElementById('hero-canvas');
+        const ctx = canvas.getContext('2d');
+        let width, height, particles;
 
-        mobileBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            const i = mobileBtn.querySelector('i');
-            if (navLinks.classList.contains('active')) {
-                i.classList.remove('fa-bars');
-                i.classList.add('fa-times');
-            } else {
-                i.classList.remove('fa-times');
-                i.classList.add('fa-bars');
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = document.getElementById('hero').offsetHeight;
+        }
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.vx = (Math.random() - 0.5) * 0.8;
+                this.vy = (Math.random() - 0.5) * 0.8;
+                this.radius = Math.random() * 2;
+                this.color = Math.random() > 0.5 ? '#00f2fe' : '#8a2be2';
             }
-        });
+            update() {
+                this.x += this.vx; this.y += this.vy;
+                if (this.x < 0 || this.x > width) this.vx *= -1;
+                if (this.y < 0 || this.y > height) this.vy *= -1;
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+        }
 
-        // Close mobile menu on link click
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                mobileBtn.querySelector('i').classList.remove('fa-times');
-                mobileBtn.querySelector('i').classList.add('fa-bars');
+        function initParticles() {
+            resize(); particles = [];
+            const count = width < 768 ? 40 : 100;
+            for (let i = 0; i < count; i++) particles.push(new Particle());
+        }
+
+        function animateCanvas() {
+            ctx.clearRect(0, 0, width, height);
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+                for (let j = i; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 150) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(0, 242, 254, ${(1 - dist / 150) * 0.3})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animateCanvas);
+        }
+
+        window.addEventListener('resize', initParticles);
+        initParticles(); animateCanvas();
+
+        // Custom Cursor Logic
+        const dot = document.querySelector('.cursor-dot');
+        const ring = document.querySelector('.cursor-ring');
+
+        if (window.matchMedia("(pointer: fine)").matches) {
+            let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
+            let ringX = mouseX, ringY = mouseY;
+
+            window.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX; mouseY = e.clientY;
+                dot.style.left = `${mouseX}px`; dot.style.top = `${mouseY}px`;
             });
-        });
+
+            function renderCursor() {
+                ringX += (mouseX - ringX) * 0.15;
+                ringY += (mouseY - ringY) * 0.15;
+                ring.style.left = `${ringX}px`;
+                ring.style.top = `${ringY}px`;
+                requestAnimationFrame(renderCursor);
+            }
+            renderCursor();
+
+            document.querySelectorAll('.cursor-hover').forEach(el => {
+                el.addEventListener('mouseenter', () => document.body.classList.add('hover-active'));
+                el.addEventListener('mouseleave', () => document.body.classList.remove('hover-active'));
+            });
+        } else {
+            dot.style.display = 'none'; ring.style.display = 'none';
+            document.body.style.cursor = 'auto';
+        }
     </script>
 </body>
 
