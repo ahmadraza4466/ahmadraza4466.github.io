@@ -16,18 +16,12 @@
     <style>
         :root {
             --bg: #09090b;
-            /* Very dark zinc */
             --bg-card: rgba(24, 24, 27, 0.7);
-            /* Zinc 900 with opacity */
             --border: rgba(255, 255, 255, 0.1);
             --accent-main: #6366f1;
-            /* Indigo 500 */
             --accent-secondary: #8b5cf6;
-            /* Violet 500 */
             --text-main: #f8fafc;
-            /* Slate 50 */
             --text-muted: #94a3b8;
-            /* Slate 400 */
         }
 
         * {
@@ -51,7 +45,6 @@
             background-attachment: fixed;
         }
 
-        /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -65,7 +58,6 @@
             border-radius: 4px;
         }
 
-        /* Typography & Utilities */
         .text-gradient {
             background: linear-gradient(135deg, #a5b4fc, #818cf8, #c4b5fd);
             -webkit-background-clip: text;
@@ -83,7 +75,6 @@
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         }
 
-        /* Navigation */
         header {
             position: fixed;
             top: 0;
@@ -158,7 +149,7 @@
         }
 
         /* Hero Section */
-        #hero {
+        #ahmadraza {
             position: relative;
             min-height: 100vh;
             display: flex;
@@ -193,9 +184,7 @@
             margin-right: 5px;
         }
 
-        /* Green dot */
-
-        #hero h1 {
+        #ahmadraza h1 {
             font-size: 4.5rem;
             font-weight: 700;
             line-height: 1.1;
@@ -203,7 +192,7 @@
             letter-spacing: -1.5px;
         }
 
-        #hero p {
+        #ahmadraza p {
             font-size: 1.2rem;
             color: var(--text-muted);
             max-width: 650px;
@@ -263,7 +252,6 @@
             transform: translateY(-2px);
         }
 
-        /* Universal Section Styles */
         section {
             padding: 6rem 2rem;
             position: relative;
@@ -283,7 +271,6 @@
             letter-spacing: -0.5px;
         }
 
-        /* About Section (Bento Grid Style) */
         .about-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -322,7 +309,6 @@
             font-size: 1.05rem;
         }
 
-        /* Tech Tags */
         .tech-tags {
             display: flex;
             flex-wrap: wrap;
@@ -346,7 +332,6 @@
             border-color: rgba(99, 102, 241, 0.3);
         }
 
-        /* Experience Timeline (Clean Style) */
         .timeline {
             border-left: 2px solid var(--border);
             padding-left: 2rem;
@@ -419,7 +404,6 @@
             font-size: 0.9rem;
         }
 
-        /* Contact Section (Minimalist Form) */
         #contact {
             margin-bottom: 4rem;
         }
@@ -443,44 +427,6 @@
             line-height: 1.7;
         }
 
-        .input-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .input-group label {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            font-weight: 500;
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            color: white;
-            font-family: inherit;
-            font-size: 1rem;
-            transition: all 0.3s;
-        }
-
-        .contact-form textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        .contact-form input:focus,
-        .contact-form textarea:focus {
-            outline: none;
-            border-color: var(--accent-main);
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        /* Footer */
         footer {
             padding: 2rem;
             text-align: center;
@@ -506,7 +452,6 @@
             color: white;
         }
 
-        /* Media Queries */
         @media (max-width: 900px) {
             .about-grid {
                 grid-template-columns: 1fr;
@@ -527,7 +472,7 @@
                 display: none;
             }
 
-            #hero h1 {
+            #ahmadraza h1 {
                 font-size: 3rem;
             }
 
@@ -555,7 +500,7 @@
         }
 
         @media (max-width: 480px) {
-            #hero h1 {
+            #ahmadraza h1 {
                 font-size: 2.2rem;
             }
 
@@ -587,7 +532,7 @@
     <!-- Header Navigation -->
     <header id="header">
         <div class="nav-container">
-            <a href="#hero" class="logo"><i class="fas fa-terminal"></i> Ahmad Raza</a>
+            <a href="#ahmadraza" class="logo"><i class="fas fa-terminal"></i> Ahmad Raza</a>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#experience">Experience</a></li>
@@ -597,7 +542,7 @@
     </header>
 
     <!-- Hero Section -->
-    <section id="hero" style="max-width: 100%; padding:0;">
+    <section id="ahmadraza" style="max-width: 100%; padding:0;">
         <div class="hero-content">
             <div data-aos="fade-down" data-aos-duration="1000">
                 <span class="hero-badge"><i class="fas fa-circle"></i> Senior Software Engineer with 6+ years</span>
@@ -615,10 +560,9 @@
                         class="fab fa-linkedin"></i>
                     View LinkedIn</a>
 
-                <!-- Replace the href below with your actual GitHub or Google Drive PDF link -->
                 <a href="./Ahmad_Raza_CV.pdf" class="btn btn-secondary" download>
-   <i class="fas fa-download"></i> Download CV
-</a>
+                    <i class="fas fa-download"></i> Download CV
+                </a>
 
                 <a href="#contact" class="btn btn-outline"><i class="fas fa-envelope"></i> Contact Me</a>
             </div>
@@ -632,7 +576,6 @@
         </div>
 
         <div class="about-grid">
-            <!-- Main Bio -->
             <div class="glass-panel bento-card bento-large" data-aos="fade-up">
                 <h3><i class="fas fa-user"></i> Professional Summary</h3>
                 <p style="margin-bottom: 1rem;">
@@ -670,7 +613,6 @@
                 </ul>
             </div>
 
-            <!-- Frontend & Styling -->
             <div class="glass-panel bento-card" data-aos="fade-up" data-aos-delay="100">
                 <h3><i class="fas fa-laptop-code"></i> Frontend & Styling</h3>
                 <div class="tech-tags">
@@ -686,7 +628,6 @@
                 </div>
             </div>
 
-            <!-- Backend Stack -->
             <div class="glass-panel bento-card" data-aos="fade-up" data-aos-delay="200">
                 <h3><i class="fas fa-server"></i> Backend</h3>
                 <div class="tech-tags">
@@ -697,7 +638,6 @@
                 </div>
             </div>
 
-            <!-- Cloud & DevOps -->
             <div class="glass-panel bento-card" data-aos="fade-up" data-aos-delay="300">
                 <h3><i class="fas fa-cloud"></i> Cloud & DevOps</h3>
                 <div class="tech-tags">
@@ -708,7 +648,6 @@
                 </div>
             </div>
 
-            <!-- Databases Section -->
             <div class="glass-panel bento-card" data-aos="fade-up" data-aos-delay="400">
                 <h3><i class="fas fa-database"></i> Databases</h3>
                 <div class="tech-tags">
@@ -719,7 +658,6 @@
                 </div>
             </div>
 
-            <!-- Tools & Methodologies (Span 2) -->
             <div class="glass-panel bento-card method-card" style="grid-column: span 2;" data-aos="fade-up"
                 data-aos-delay="500">
                 <h3><i class="fas fa-project-diagram"></i> Tools & Methodologies</h3>
@@ -738,97 +676,88 @@
         </div>
     </section>
 
-    <!-- Professional Experience Timeline -->
-  <section id="experience">
-    <div class="section-header" data-aos="fade-right">
-        <h2 class="section-title">Experience</h2>
-    </div>
-
-    <div class="timeline">
-
-        <!-- Job 1 -->
-        <div class="timeline-item" data-aos="fade-up">
-            <div class="timeline-dot"></div>
-            <h3 class="exp-role">Senior Software Engineer</h3>
-            <h4 class="exp-company">MeGaDev OÜ</h4>
-            <div class="exp-meta">
-                <span><i class="far fa-calendar-alt"></i> Jan 2026 – Present</span>
-                <span><i class="fas fa-map-marker-alt"></i> Riga, Latvia · Hybrid</span>
-            </div>
-            <ul class="exp-details">
-                <li>Assigned to the Accenture delivery team contributing to large-scale BBC digital transformation initiatives.</li>
-                <li>Designing and developing scalable full-stack applications using Node.js and modern frontend frameworks (Angular, React, Vue).</li>
-                <li>Architecting and maintaining secure RESTful APIs and microservices-based systems.</li>
-                <li>Implementing cloud-native solutions using AWS (Lambda, DynamoDB, EC2, S3).</li>
-                <li>Managing containerized deployments with Docker and supporting CI/CD pipelines via Jenkins and GitHub Actions.</li>
-                <li>Participating in Agile Scrum ceremonies including sprint planning, daily stand-ups, and retrospectives.</li>
-                <li>Ensuring clean architecture, performance optimization, and high engineering standards.</li>
-            </ul>
+    <section id="experience">
+        <div class="section-header" data-aos="fade-right">
+            <h2 class="section-title">Experience</h2>
         </div>
 
-        <!-- Job 2 -->
-        <div class="timeline-item" data-aos="fade-up">
-            <div class="timeline-dot"></div>
-            <h3 class="exp-role">Senior Software Engineer</h3>
-            <h4 class="exp-company">Arvensys Technologies</h4>
-            <div class="exp-meta">
-                <span><i class="far fa-calendar-alt"></i> May 2023 – Dec 2025</span>
-                <span><i class="fas fa-globe"></i> Australia · Remote</span>
+        <div class="timeline">
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-dot"></div>
+                <h3 class="exp-role">Senior Software Engineer</h3>
+                <h4 class="exp-company">MeGaDev OÜ</h4>
+                <div class="exp-meta">
+                    <span><i class="far fa-calendar-alt"></i> Jan 2026 – Present</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Riga, Latvia · Hybrid</span>
+                </div>
+                <ul class="exp-details">
+                    <li>Assigned to the Accenture delivery team contributing to large-scale BBC digital transformation initiatives.</li>
+                    <li>Designing and developing scalable full-stack applications using Node.js and modern frontend frameworks (Angular, React, Vue).</li>
+                    <li>Architecting and maintaining secure RESTful APIs and microservices-based systems.</li>
+                    <li>Implementing cloud-native solutions using AWS (Lambda, DynamoDB, EC2, S3).</li>
+                    <li>Managing containerized deployments with Docker and supporting CI/CD pipelines via Jenkins and GitHub Actions.</li>
+                    <li>Participating in Agile Scrum ceremonies including sprint planning, daily stand-ups, and retrospectives.</li>
+                    <li>Ensuring clean architecture, performance optimization, and high engineering standards.</li>
+                </ul>
             </div>
-            <ul class="exp-details">
-                <li>Engaged via Maximize Solution to deliver engineering services for Arvensys Technologies (Australia).</li>
-                <li>Delivered scalable web applications using Angular (2+ to 17), JavaScript, and RESTful APIs.</li>
-                <li>Contributed to backend integrations and API consumption across SaaS and enterprise platforms.</li>
-                <li>Designed reusable UI components and improved application performance and scalability.</li>
-                <li>Participated in architectural discussions and sprint planning within Agile workflows.</li>
-                <li>Operated successfully in a cross-border remote environment aligned with Australian delivery standards.</li>
-            </ul>
-        </div>
 
-        <!-- Job 3 -->
-        <div class="timeline-item" data-aos="fade-up">
-            <div class="timeline-dot"></div>
-            <h3 class="exp-role">Software Engineer</h3>
-            <h4 class="exp-company">Automated Business Solutions (ABS)</h4>
-            <div class="exp-meta">
-                <span><i class="far fa-calendar-alt"></i> Sep 2020 – May 2023</span>
-                <span><i class="fas fa-map-marker-alt"></i> Lahore, Pakistan · On-site</span>
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-dot"></div>
+                <h3 class="exp-role">Senior Software Engineer</h3>
+                <h4 class="exp-company">Arvensys Technologies</h4>
+                <div class="exp-meta">
+                    <span><i class="far fa-calendar-alt"></i> May 2023 – Dec 2025</span>
+                    <span><i class="fas fa-globe"></i> Australia · Remote</span>
+                </div>
+                <ul class="exp-details">
+                    <li>Engaged via Maximize Solution to deliver engineering services for Arvensys Technologies (Australia).</li>
+                    <li>Delivered scalable web applications using Angular (2+ to 17), JavaScript, and RESTful APIs.</li>
+                    <li>Contributed to backend integrations and API consumption across SaaS and enterprise platforms.</li>
+                    <li>Designed reusable UI components and improved application performance and scalability.</li>
+                    <li>Participated in architectural discussions and sprint planning within Agile workflows.</li>
+                    <li>Operated successfully in a cross-border remote environment aligned with Australian delivery standards.</li>
+                </ul>
             </div>
-            <ul class="exp-details">
-                <li>Re-architected ERP modules using Angular, Bootstrap, and PrimeNG to improve maintainability and performance.</li>
-                <li>Delivered scalable business platforms for MENA and Dubai-based clients.</li>
-                <li>Migrated legacy systems (Struts/.NET) to modern Angular stack.</li>
-                <li>Optimized frontend architecture and improved API efficiency.</li>
-                <li>Implemented role-based dashboards and enterprise UI standards.</li>
-            </ul>
-        </div>
 
-        <!-- Job 4 -->
-        <div class="timeline-item" data-aos="fade-up">
-            <div class="timeline-dot"></div>
-            <h3 class="exp-role">Software Engineer</h3>
-            <h4 class="exp-company">Programmers Force</h4>
-            <div class="exp-meta">
-                <span><i class="far fa-calendar-alt"></i> Aug 2019 – Sep 2020</span>
-                <span><i class="fas fa-map-marker-alt"></i> Lahore, Pakistan · On-site</span>
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-dot"></div>
+                <h3 class="exp-role">Software Engineer</h3>
+                <h4 class="exp-company">Automated Business Solutions (ABS)</h4>
+                <div class="exp-meta">
+                    <span><i class="far fa-calendar-alt"></i> Sep 2020 – May 2023</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Lahore, Pakistan · On-site</span>
+                </div>
+                <ul class="exp-details">
+                    <li>Re-architected ERP modules using Angular, Bootstrap, and PrimeNG to improve maintainability and performance.</li>
+                    <li>Delivered scalable business platforms for MENA and Dubai-based clients.</li>
+                    <li>Migrated legacy systems (Struts/.NET) to modern Angular stack.</li>
+                    <li>Optimized frontend architecture and improved API efficiency.</li>
+                    <li>Implemented role-based dashboards and enterprise UI standards.</li>
+                </ul>
             </div>
-            <ul class="exp-details">
-                <li>Developed fintech and identity verification platforms using Vue.js, Laravel, and REST APIs.</li>
-                <li>Contributed to secure KYC/AML systems and real-time crypto trading platforms.</li>
-                <li>Integrated backend services and implemented responsive UI architectures.</li>
-                <li>Resolved production issues and improved system reliability.</li>
-                <li>Worked in Agile teams to deliver secure, scalable, and compliant solutions.</li>
-            </ul>
+
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-dot"></div>
+                <h3 class="exp-role">Software Engineer</h3>
+                <h4 class="exp-company">Programmers Force</h4>
+                <div class="exp-meta">
+                    <span><i class="far fa-calendar-alt"></i> Aug 2019 – Sep 2020</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Lahore, Pakistan · On-site</span>
+                </div>
+                <ul class="exp-details">
+                    <li>Developed fintech and identity verification platforms using Vue.js, Laravel, and REST APIs.</li>
+                    <li>Contributed to secure KYC/AML systems and real-time crypto trading platforms.</li>
+                    <li>Integrated backend services and implemented responsive UI architectures.</li>
+                    <li>Resolved production issues and improved system reliability.</li>
+                    <li>Worked in Agile teams to deliver secure, scalable, and compliant solutions.</li>
+                </ul>
+            </div>
         </div>
+    </section>
 
-    </div>
-</section>
-
-    <!-- Connect Form Section -->
     <section id="contact" data-aos="fade-up">
         <div class="glass-panel contact-panel" style="padding: 4rem; overflow: hidden; position: relative;">
             <div class="contact-container" style="position: relative; z-index: 2;">
-
                 <div class="contact-info">
                     <h2 class="section-title" style="font-size: 2.5rem; margin-bottom: 1rem;">Let's build something
                         <span class="text-gradient">together.</span>
@@ -844,7 +773,6 @@
                     </div>
                 </div>
 
-                <!-- Clean Email Button -->
                 <div class="email-box"
                     style="display: flex; align-items: center; justify-content: center; background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border); border-radius: 16px; padding: 3rem;">
                     <a href="mailto:ahmadraza4466@gmail.com" class="btn btn-primary email-btn"
@@ -856,7 +784,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="social-links">
             <a href="https://www.linkedin.com/in/ahmadraza466/"><i class="fab fa-linkedin-in"></i></a>
@@ -865,7 +792,6 @@
         <p>&copy; 2026 Ahmad Raza. All rights reserved.</p>
     </footer>
 
-    <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <script>
@@ -877,6 +803,21 @@
             const header = document.getElementById('header');
             if (window.scrollY > 50) header.classList.add('scrolled');
             else header.classList.remove('scrolled');
+        });
+
+        // Smooth scroll + remove hash from URL after scroll (clean URL)
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                const href = link.getAttribute('href');
+                const target = document.querySelector(href);
+                if (!target) return;
+
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+                // Remove #hash from URL (keep URL clean)
+                history.pushState("", document.title, window.location.pathname + window.location.search);
+            });
         });
     </script>
 </body>
