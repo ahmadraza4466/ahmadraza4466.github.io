@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ahmad Raza | Senior Software Engineer</title>
     <meta name="description"
-        content="Ahmad Raza - Building scalable cloud-native applications with 6+ years of experience.">
+        content="Ahmad Raza - Building scalable cloud-native applications with 7+ years of experience.">
 
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
@@ -544,8 +544,38 @@
                 align-items: flex-start;
             }
 
-            .contact-form {
-                gap: 1rem;
+            .contact-panel {
+                padding: 2rem !important;
+            }
+
+            .method-card {
+                grid-column: span 1 !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #hero h1 {
+                font-size: 2.2rem;
+            }
+
+            p[style*="font-size: 1.3rem"] {
+                font-size: 1.1rem !important;
+                margin-bottom: 2rem !important;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .email-box {
+                padding: 1.5rem !important;
+            }
+
+            .email-btn {
+                font-size: 1rem !important;
+                padding: 1rem !important;
+                width: 100%;
             }
         }
     </style>
@@ -556,7 +586,7 @@
     <!-- Header Navigation -->
     <header id="header">
         <div class="nav-container">
-            <a href="#hero" class="logo"><i class="fas fa-terminal"></i> Ahmad Raza</a>
+            <a href="#hero" class="logo"><i class="fas fa-terminal"></i> ahmad_raza</a>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#experience">Experience</a></li>
@@ -582,7 +612,8 @@
             <div class="btn-group" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
                 <a href="https://linkedin.com" target="_blank" class="btn btn-primary"><i class="fab fa-linkedin"></i>
                     View LinkedIn</a>
-                <a href="#" class="btn btn-secondary"><i class="fas fa-download"></i> Download CV</a>
+                <a href="Ahmad_Raza_CV.pdf" download="Ahmad_Raza_CV.pdf" class="btn btn-secondary"><i
+                        class="fas fa-download"></i> Download CV</a>
                 <a href="#contact" class="btn btn-outline"><i class="fas fa-envelope"></i> Contact Me</a>
             </div>
         </div>
@@ -668,7 +699,8 @@
             </div>
 
             <!-- Methodologies Section (Span 2) -->
-            <div class="glass-panel bento-card" style="grid-column: span 2;" data-aos="fade-up" data-aos-delay="500">
+            <div class="glass-panel bento-card method-card" style="grid-column: span 2;" data-aos="fade-up"
+                data-aos-delay="500">
                 <h3><i class="fas fa-project-diagram"></i> Methodologies</h3>
                 <div class="tech-tags">
                     <span class="tech-tag">Agile</span>
@@ -764,7 +796,7 @@
 
     <!-- Connect Form Section -->
     <section id="contact" data-aos="fade-up">
-        <div class="glass-panel" style="padding: 4rem; overflow: hidden; position: relative;">
+        <div class="glass-panel contact-panel" style="padding: 4rem; overflow: hidden; position: relative;">
             <div class="contact-container" style="position: relative; z-index: 2;">
 
                 <div class="contact-info">
@@ -782,9 +814,9 @@
                 </div>
 
                 <!-- Clean Email Button -->
-                <div
+                <div class="email-box"
                     style="display: flex; align-items: center; justify-content: center; background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border); border-radius: 16px; padding: 3rem;">
-                    <a href="mailto:ahmadraza4466@gmail.com" class="btn btn-primary"
+                    <a href="mailto:ahmadraza4466@gmail.com" class="btn btn-primary email-btn"
                         style="font-size: 1.2rem; padding: 1.2rem 2.5rem;">
                         <i class="fas fa-envelope"></i> ahmadraza4466@gmail.com
                     </a>
